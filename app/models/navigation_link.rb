@@ -1,6 +1,6 @@
 class NavigationLink < ApplicationRecord
   SVG_REGEXP = /<svg .*>/im
-
+  serialize :translatable_name, HashSerializer
   before_validation :allow_relative_url, if: :url?
   before_save :strip_local_hostname, if: :url?
 
